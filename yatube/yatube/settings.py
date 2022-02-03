@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'posts.apps.PostConfig',  # Регистрируем post 
+    'posts.apps.PostConfig',  # Регистрируем приложение post 
 ]
 
 MIDDLEWARE = [
@@ -52,10 +52,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'yatube.urls'
 
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] # откуда подгружать статические файлы CSS
+# путь к директории static
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates') # Откуда подгружать шаблоны
+# Путь к директории с шаблонами вынесен в переменную:
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
